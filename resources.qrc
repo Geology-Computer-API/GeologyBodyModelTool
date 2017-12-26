@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>cloud.png</file>
+        <file>Export.ico</file>
+        <file>Import.ico</file>
+    </qresource>
+</RCC>
