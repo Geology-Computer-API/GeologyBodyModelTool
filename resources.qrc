@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/resource">
-        <file>cloud.png</file>
-        <file>Export.ico</file>
-        <file>Import.ico</file>
+        <file>images/cloud.png</file>
+        <file>images/Export.ico</file>
+        <file>images/Import.ico</file>
     </qresource>
 </RCC>

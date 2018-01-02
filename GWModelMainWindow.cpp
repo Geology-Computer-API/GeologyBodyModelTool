@@ -6,7 +6,7 @@ CGWModelMainWindow::CGWModelMainWindow(QWidget *parent) :
     ui(new Ui::CGWModelMainWindow)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon(":/resource/cloud.png"));
+    this->setWindowIcon(QIcon(":/resource/images/cloud.png"));
     this->setWindowTitle(QStringLiteral("地质体模型工具"));
     m_viewModel = new QStandardItemModel(this);
     this->ui->tableView->setModel(m_viewModel);
