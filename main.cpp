@@ -10,6 +10,5 @@ int main(int argc, char *argv[])
     CGWModelMainWindow w;
     w.showMaximized();
 
-
     return a.exec();
 }

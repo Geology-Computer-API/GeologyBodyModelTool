@@ -15,7 +15,7 @@ CGWModelMainWindow::CGWModelMainWindow(QWidget *parent) :
     m_blockWidth  = MODEL_XSCALE;
     m_blockHeight = MODEL_YSCALE;
     initTableView();
-    preparationTableContent();
+    InitialTableContent();
     initQwtPlot();
 }
 
@@ -178,15 +178,15 @@ void CGWModelMainWindow::initQwtPlot()
 }
 
 /*
- * Function   :preparationTableContent
+ * Function   :InitialTableContent
  * Summary     :对表格内容做预处理
  * Parameters:
- * Return       :
+ * Return       :bool true-初始化成功，false-初始化失败
  */
-void CGWModelMainWindow::preparationTableContent()
+bool CGWModelMainWindow::InitialTableContent()
 {
     if(0 == m_viewModel->rowCount()) {
-        return;
+        return false;
     }
     m_viewModel->sort(0, Qt::AscendingOrder);
 
@@ -200,14 +200,26 @@ void CGWModelMainWindow::preparationTableContent()
     //添加组合框于单元格中
     m_reflectDelegate = new CGWItemDelegate();
     QStringList reflectList;
-    reflectList << QString::fromLocal8Bit("白") << QString::fromLocal8Bit("黑") << QString::fromLocal8Bit("红");
+    reflectList << QStringLiteral("白") << QStringLiteral("黑") << QStringLiteral("红");
     m_reflectDelegate->setItemList(reflectList);
    this->ui->tableView->setItemDelegateForColumn(3,m_reflectDelegate);
     m_roughDelelegate = new CGWItemDelegate();
     QStringList roughList;
-    roughList << QString::fromLocal8Bit("凹") << QString::fromLocal8Bit("凸") << QString::fromLocal8Bit("凹凸");
+    roughList << QStringLiteral("凹") << QStringLiteral("凸") << QStringLiteral("凹凸");
     m_roughDelelegate->setItemList(roughList);
     this->ui->tableView->setItemDelegateForColumn(4,m_roughDelelegate);
+    return true;
+}
+
+/*
+ * Function    :SaveTableContent
+ * Summary      :保存内容
+ * Parameters:
+ * Return       :bool true-保存成功，false-保存失败
+ */
+bool CGWModelMainWindow::SaveTableContent()
+{
+    return true;
 }
 
 /*

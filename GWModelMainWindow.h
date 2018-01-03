@@ -58,22 +58,24 @@ protected:
     /******初始化图表******/
     void initQwtPlot();
     /**初始化单元格排序及控件**/
-    void preparationTableContent();
+    bool InitialTableContent();
+    /*******保存内容*******/
+    bool SaveTableContent();
     /***模型分块*************/
     void setModelBlock(const int&w = 2,const int& h = 2);
 
 private:
     Ui::CGWModelMainWindow *ui;
-    QStandardItemModel*        m_viewModel;
+    QStandardItemModel*       m_viewModel;
     CGWItemDelegate*             m_reflectDelegate;
     CGWItemDelegate*             m_roughDelelegate;
     CGWSettingWindow*           m_settingWindow;
-    int                                    m_blockWidth;
-    int                                    m_blockHeight;
+    int                                       m_blockWidth;
+    int                                       m_blockHeight;
     QVector<QPointF>             m_pointVec;
     QwtPointSeriesData *      m_plotdata;
-    QwtPlotCurve *                 m_plotcurve;
-    QwtPlotCanvas *               m_plotcanvas;
+    QwtPlotCurve *                  m_plotcurve;
+    QwtPlotCanvas *                m_plotcanvas;
 };
 
 #endif // GWMODELMAINWINDOW_H
