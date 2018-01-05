@@ -70,7 +70,10 @@ void CGWModelMainWindow::on_configButton_clicked()
  */
 void CGWModelMainWindow::on_importAction_triggered()
 {
-    QStringList currPaths = QFileDialog::getOpenFileNames(this,tr("Open Model File"),".",tr("Model Files(*.ico)"));
+    QString _caption = QStringLiteral("打开地质体模型文件");
+    QString _dir = ".";
+    QString _filter = QStringLiteral("模型文件(*.ico)");
+    QStringList currPaths = QFileDialog::getOpenFileNames(this,_caption,_dir,_filter);
     if(currPaths.length() != 0) {
         foreach (QString temp, currPaths) {
             qDebug() << "You selected: " + temp;
